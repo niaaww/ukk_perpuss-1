@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-danger text-white mb-4">
                                 <div class="card-body">
@@ -61,31 +61,5 @@
                                 </div>
                             </div>
                         </div>
-    </div>
-    <div class="car">
-                        <div class="card body">
-                            <table class="table table-bordered">
-
-                            <tr>
-                                <td width="200"> Nama </td>
-                                <td width="1">:</td>
-                                <td><?php  echo $_SESSION['user']['nama']; ?></td>
-                            </tr>
-                                
-                            <tr>
-                                <td width="200"> Level User </td>
-                                <td width="1">:</td>
-                                <td><?php  echo $_SESSION['user']['level']; ?></td>
-                            </tr>
-
-                            <tr>
-                                <td width="200"> Tanggal Login </td>
-                                <td width="1">:</td>
-                                <td><?php  echo date('d-m-y'); ?></td>
-                            </tr>
                 
-                            </table>
-                        </div>
-
-    </div>
                 

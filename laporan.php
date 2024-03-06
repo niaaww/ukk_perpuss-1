@@ -1,8 +1,6 @@
 <h1 class="mt-4">Laporan Peminjam Buku</h1>
 <div class="card">
-        <a href="cetak.php" target="_blank" class="btn btn-primary"><i class="fa fa-print">
-
-        </i> Cetak Data </a>
+        <a href="cetak.php" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> Cetak Data </a>
         <div class="card-body">
     <div class="row">
         <div class="col-md-12">
@@ -11,23 +9,24 @@
                     <th>No</th>
                     <th>User</th>
                     <th>Buku</th>
-                    <th>Tgl Peminjam</th>
-                    <th>Tgl Pengembalian</th>
-                    <th>Status Peminjam</th>
+                    <th>Ulasan</th>
+                    <th>Rating</th>
                 </tr>
                 <?php
                 $i =1;
-                    $query = mysqli_query ($koneksi, "SELECT*FROM peminjam LEFT JOIN user on 
-                    user.id_user = peminjam.id_user LEFT JOIN buku on buku.id_buku =  peminjam.id_buku");
+                    $query = mysqli_query ($koneksi, "SELECT*FROM ulasan 
+                    LEFT JOIN
+                    buku on ulasan.id_buku = buku.id_buku
+                    LEFT JOIN user on ulasan.id_user = user.id_user "
+                    );
                     while($data = mysqli_fetch_array($query)){
                     ?>
                     <tr>
                         <td><?php echo $i++; ?></td>
                         <td><?php echo $data['nama']; ?> </td>
                         <td><?php echo $data['judul_buku']; ?> </td>
-                        <td><?php echo $data['tgl_peminjaman']; ?> </td>
-                        <td><?php echo $data['tgl_pengembalian']; ?> </td>
-                        <td><?php echo $data['status_peminjaman']; ?> </td>
+                        <td><?php echo $data['ulasan']; ?> </td>
+                        <td><?php echo $data['rating']; ?> </td>
                         </tr>
                         <?php
                     }

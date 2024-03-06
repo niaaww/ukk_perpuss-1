@@ -1,37 +1,50 @@
-<h2 align="center">LAPORAN PEMINJAMAN BUKU</h2>
-<table border="1" cellspacing="0" cellpading="5" widht"100%">
-                <tr>
-                    <th>No</th>
-                    <th>User</th>
-                    <th>Buku </th>
-                    <th>Tgl Peminjaman</th>
-                    <th>Tgl Pengembalian</th>
-                    <th>Status Peminjaman</th>
-                </tr>
-                <?php
-                include "koneksi.php";
-                $i =1;
-                    $query = mysqli_query ($koneksi, "SELECT*FROM peminjam LEFT JOIN user on
-                    user.id_user= peminjam.id_user LEFT JOIN buku on buku. id_buku = peminjam.id_buku");
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRINT LAPORAN PEMINJAMAN BUKU</title>
+    </head>
+    <body>
+
+
+    <center>
+
+        <h2>DATA LAPORAN PEMINJAMAN BUKU</h2>
+
+    </center>
+
+    <?php
+    include 'koneksi.php';
+    ?>
+
+    <table border="1" style="width: 100">
+    <th>width="1%">No</th>
+    <th>User</th>
+    <th>Buku</th>
+    <th>Ulasan</th>
+</tr>
+<?php
+                    $i =1;
+                    $query = mysqli_query ($koneksi, "SELECT*FROM ulasan 
+                    LEFT JOIN
+                    buku on ulasan.id_buku = buku.id_buku
+                    LEFT JOIN user on ulasan.id_user = user.id_user "
+                    );
                     while($data = mysqli_fetch_array($query)){
-                        ?>
-                        <tr>        
-                            <td><?php echo $i++; ?></td>
-                            <td><?php echo $data['nama']; ?> </td>
-                            <td><?php echo $data['judul_buku']; ?> </td>
-                            <td><?php echo $data['tgl_peminjaman']; ?> </td>
-                            <td><?php echo $data['tgl_pengembalian']; ?> </td>
-                            <td><?php echo $data['status_peminjaman']; ?> </td>
-                        </tr>
-                        <?php
+                    ?>
+<tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $data['nama']; ?> </td>
+                        <td><?php echo $data['judul_buku']; ?> </td>
+                        <td><?php echo $data['ulasan']; ?> </td>
+                        <td><?php echo $data['rating']; ?> </td>
+</tr>
+<?php
                     }
-                        ?>
-                        </table>
-                <script>
+                    ?>
+</table>
 
-                    window.print();
-
-                    setTimeout(() => {
-                    window.close();
-                    }, 100);
+<script>
+    window.print();
                 </script>
+    </body>
+</html>

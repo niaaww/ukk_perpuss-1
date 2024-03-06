@@ -43,9 +43,9 @@
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-2">Judul_buku</div>
+                        <div class="col-md-2">Judul</div>
                         <div class="col-md-8">
-                            <input type="text" value="<?php echo $data['judul_buku']; ?>" class="form-control"name="judul_buku"></div>
+                            <input type="text" value="<?php echo $data['judul']; ?>" class="form-control"name="judul"></div>
                     </div>
 
                     <div class="row mb-3">
